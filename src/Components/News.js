@@ -1660,7 +1660,8 @@ export class News extends Component {
   constructor() {
     super();
     this.state = {
-        articles: this.articles
+      articles: this.articles,
+      loading: false,
     };
   }
   render() {
@@ -1669,61 +1670,20 @@ export class News extends Component {
         <div className="container">
           <h1 className="my-3">DailyDose - Top Headlines</h1>
           <div className="row">
-            <div className="col-md-4">
-              <NewsItem
-                title={"title"}
-                description={"description"}
-                imageUrl={
-                  "https://s.yimg.com/uu/api/res/1.2/XOMB72LjuTa5RLyzZ4JA5Q--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/d865d0f0-e355-11ed-b5ff-ec2dc60bb88a.cf.jpg"
-                }
-              />
-            </div>
-            <div className="col-md-4">
-              <NewsItem
-                title={"title"}
-                description={"description"}
-                imageUrl={
-                  "https://s.yimg.com/uu/api/res/1.2/XOMB72LjuTa5RLyzZ4JA5Q--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/d865d0f0-e355-11ed-b5ff-ec2dc60bb88a.cf.jpg"
-                }
-              />
-            </div>
-            <div className="col-md-4">
-              <NewsItem
-                title={"title"}
-                description={"description"}
-                imageUrl={
-                  "https://s.yimg.com/uu/api/res/1.2/XOMB72LjuTa5RLyzZ4JA5Q--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/d865d0f0-e355-11ed-b5ff-ec2dc60bb88a.cf.jpg"
-                }
-              />
-            </div>
-            <div className="col-md-4">
-              <NewsItem
-                title={"title"}
-                description={"description"}
-                imageUrl={
-                  "https://s.yimg.com/uu/api/res/1.2/XOMB72LjuTa5RLyzZ4JA5Q--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/d865d0f0-e355-11ed-b5ff-ec2dc60bb88a.cf.jpg"
-                }
-              />
-            </div>
-            <div className="col-md-4">
-              <NewsItem
-                title={"title"}
-                description={"description"}
-                imageUrl={
-                  "https://s.yimg.com/uu/api/res/1.2/XOMB72LjuTa5RLyzZ4JA5Q--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/d865d0f0-e355-11ed-b5ff-ec2dc60bb88a.cf.jpg"
-                }
-              />
-            </div>
-            <div className="col-md-4">
-              <NewsItem
-                title={"title"}
-                description={"description"}
-                imageUrl={
-                  "https://s.yimg.com/uu/api/res/1.2/XOMB72LjuTa5RLyzZ4JA5Q--~B/Zmk9ZmlsbDtoPTYzMDtweW9mZj0wO3c9MTIwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-04/d865d0f0-e355-11ed-b5ff-ec2dc60bb88a.cf.jpg"
-                }
-              />
-            </div>
+            {this.state.articles.map((elem) => {
+              return (
+                <div className="col-md-4" key={elem.url}>
+                  <NewsItem
+                    title={elem.title.slice(0,75)+"..."}
+                    description={elem.description.slice(0,80)+"..."}
+                    imageUrl={elem.urlToImage}
+                    url={elem.url}
+                  />
+                </div>
+              );
+            })}
           </div>
+          ;
         </div>
       </>
     );
