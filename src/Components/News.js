@@ -5395,6 +5395,7 @@ export class News extends Component {
         data: this.articles,
         currentPage: 1,
         itemsPerPage: 15,
+        loading: true
     };
   }
 
@@ -5402,12 +5403,14 @@ export class News extends Component {
     this.setState((prevState) => ({
       currentPage: prevState.currentPage + 1,
     }));
+    window.scrollTo(0, 0);
   };
 
   handlePrevClick = () => {
     this.setState((prevState) => ({
       currentPage: prevState.currentPage - 1,
     }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   handlePerPageChange = (event) => {
@@ -5422,6 +5425,7 @@ export class News extends Component {
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentData = data.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(data.length / itemsPerPage);
 
     return (
       <>
@@ -5434,7 +5438,7 @@ export class News extends Component {
                   <NewsItem
                     title={
                       elem.title
-                        ? elem.title.slice(0, 75) + "..."
+                        ? elem.title.slice(0, 60) + "..."
                         : "Not available"
                     }
                     description={
@@ -5449,8 +5453,8 @@ export class News extends Component {
               );
             })}
           </div>
-          <div className="d-flex justify-content-between">
-            <button className="btn btn-primary" onClick={this.handlePrevClick}>
+          <div className="d-flex justify-content-between my-2">
+            <button disabled={currentPage === 1} className="btn btn-primary" onClick={this.handlePrevClick}>
               &larr; previous
             </button>
             <select className="btn btn-primary dropdown-toggle" value={itemsPerPage} onChange={this.handlePerPageChange}>
@@ -5458,7 +5462,7 @@ export class News extends Component {
               <option className="dropdown-item" value={30}>30-articles per page</option>
               <option className="dropdown-item" value={50}>50-articles per page</option>
             </select>
-            <button className="btn btn-primary" onClick={this.handleNextClick}>
+            <button disabled={currentPage === totalPages} className="btn btn-primary" onClick={this.handleNextClick}>
               Next &rarr;
             </button>
           </div>
