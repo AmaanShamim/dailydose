@@ -5450,7 +5450,7 @@ export class News extends Component {
               </option>
             </select>
           </h1>
-          <div className="row" mode={this.state.mode}>
+          <div className="row">
             {currentData.map((elem, index) => {
               return (
                 <div className="container col-md-4" key={index}>
