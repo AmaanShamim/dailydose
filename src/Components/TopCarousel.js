@@ -4,9 +4,9 @@ export class TopCarousel extends Component {
   render() {
     return (
       <>
-        <div className="container my-2">
-          <h1 className="my-2">TOP-HEADLINES</h1>
-          <div id="carouselExampleCaptions m-5" className="carousel slide">
+        <div className="container">
+          <h1 className="my-3 text-center">DailyDose - Top Headlines</h1>
+          <div id="carouselExampleCaptions" className="carousel slide">
             <div className="carousel-indicators">
               <button
                 type="button"
@@ -31,11 +31,7 @@ export class TopCarousel extends Component {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img
-                  src="https://www.hindustantimes.com/ht-img/img/2023/04/25/1600x900/dhoni_angry_cool_1682421186973_1682421197757.jpg"
-                  className="d-block w-100"
-                  alt="..."
-                />
+                <img src="https://www.hindustantimes.com/ht-img/img/2023/04/25/1600x900/dhoni_angry_cool_1682421186973_1682421197757.jpg" className="d-block w-100" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5>First slide label</h5>
                   <p>
@@ -44,11 +40,7 @@ export class TopCarousel extends Component {
                 </div>
               </div>
               <div className="carousel-item">
-                <img
-                  src="https://www.hindustantimes.com/ht-img/img/2023/04/25/1600x900/dhoni_angry_cool_1682421186973_1682421197757.jpg"
-                  className="d-block w-100"
-                  alt="..."
-                />
+                <img src="https://www.hindustantimes.com/ht-img/img/2023/04/25/1600x900/dhoni_angry_cool_1682421186973_1682421197757.jpg" className="d-block w-100" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5>Second slide label</h5>
                   <p>
@@ -58,11 +50,7 @@ export class TopCarousel extends Component {
                 </div>
               </div>
               <div className="carousel-item">
-                <img
-                  src="https://www.hindustantimes.com/ht-img/img/2023/04/25/1600x900/dhoni_angry_cool_1682421186973_1682421197757.jpg"
-                  className="d-block w-100"
-                  alt="..."
-                />
+                <img src="https://www.hindustantimes.com/ht-img/img/2023/04/25/1600x900/dhoni_angry_cool_1682421186973_1682421197757.jpg" className="d-block w-100" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5>Third slide label</h5>
                   <p>

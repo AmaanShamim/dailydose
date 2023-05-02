@@ -5392,10 +5392,10 @@ export class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: this.articles,
-        currentPage: 1,
-        itemsPerPage: 15,
-        loading: true
+      data: this.articles,
+      currentPage: 1,
+      itemsPerPage: 15,
+      loading: true,
     };
   }
 
@@ -5404,13 +5404,14 @@ export class News extends Component {
       currentPage: prevState.currentPage + 1,
     }));
     window.scrollTo(0, 0);
+    console.log(this.state.mode)
   };
 
   handlePrevClick = () => {
     this.setState((prevState) => ({
       currentPage: prevState.currentPage - 1,
     }));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   handlePerPageChange = (event) => {
@@ -5426,16 +5427,34 @@ export class News extends Component {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentData = data.slice(indexOfFirstItem, indexOfLastItem);
     const totalPages = Math.ceil(data.length / itemsPerPage);
-
+    
     return (
       <>
         <div className="container">
-          <h1 className="my-3">DailyDose - Top Headlines</h1>
+          <h1 className="my-3">
+            Explore more articles:
+            <select
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'}`}
+              value={itemsPerPage}
+              onChange={this.handlePerPageChange}
+            >
+              <option className="dropdown-item" value={15}>
+                15-articles per page
+              </option>
+              <option className="dropdown-item" value={30}>
+                30-articles per page
+              </option>
+              <option className="dropdown-item" value={50}>
+                50-articles per page
+              </option>
+            </select>
+          </h1>
           <div className="row">
             {currentData.map((elem, index) => {
               return (
                 <div className="container col-md-4" key={index}>
                   <NewsItem
+                    mode={this.state.mode}
                     title={
                       elem.title
                         ? elem.title.slice(0, 60) + "..."
@@ -5454,15 +5473,18 @@ export class News extends Component {
             })}
           </div>
           <div className="d-flex justify-content-between my-2">
-            <button disabled={currentPage === 1} className="btn btn-primary" onClick={this.handlePrevClick}>
+            <button
+              disabled={currentPage === 1}
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'}`}
+              onClick={this.handlePrevClick}
+            >
               &larr; previous
             </button>
-            <select className="btn btn-primary dropdown-toggle" value={itemsPerPage} onChange={this.handlePerPageChange}>
-              <option className="dropdown-item" value={15}>15-articles per page</option>
-              <option className="dropdown-item" value={30}>30-articles per page</option>
-              <option className="dropdown-item" value={50}>50-articles per page</option>
-            </select>
-            <button disabled={currentPage === totalPages} className="btn btn-primary" onClick={this.handleNextClick}>
+            <button
+              disabled={currentPage === totalPages}
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'}`}
+              onClick={this.handleNextClick}
+            >
               Next &rarr;
             </button>
           </div>
