@@ -5403,15 +5403,16 @@ export class News extends Component {
     this.setState((prevState) => ({
       currentPage: prevState.currentPage + 1,
     }));
-    window.scrollTo(0, 0);
-    console.log(this.state.mode)
+    const element = document.getElementById('scrollUp');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   handlePrevClick = () => {
     this.setState((prevState) => ({
       currentPage: prevState.currentPage - 1,
     }));
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const element = document.getElementById('scrollUp');
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   handlePerPageChange = (event) => {
@@ -5430,11 +5431,11 @@ export class News extends Component {
     
     return (
       <>
-        <div className="container">
+        <div className="container my-5" id="scrollUp">
           <h1 className="my-3">
             Explore more articles:
             <select
-              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'}`}
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'} mx-3`}
               value={itemsPerPage}
               onChange={this.handlePerPageChange}
             >

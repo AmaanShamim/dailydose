@@ -5,7 +5,7 @@ export class NewsItem extends Component {
     let { title, description, imageUrl, newsUrl,} = this.props;
     return (
       <div className="my-3">
-        <div className="container card" style={{ width: "20rem", border: "solid", height: 440, overflow: "auto",
+        <div className="container card" style={{ width:"20rem", border:"solid", borderWidth:1, height:440, overflow:"auto",
         backgroundColor:this.props.mode==='dark'?'#212529':'white',
         color:this.props.mode==='dark'?'white':'black'
         }}>
