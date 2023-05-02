@@ -5449,12 +5449,11 @@ export class News extends Component {
               </option>
             </select>
           </h1>
-          <div className="row">
+          <div className="row" mode={this.state.mode}>
             {currentData.map((elem, index) => {
               return (
                 <div className="container col-md-4" key={index}>
                   <NewsItem
-                    mode={this.state.mode}
                     title={
                       elem.title
                         ? elem.title.slice(0, 60) + "..."
@@ -5467,6 +5466,7 @@ export class News extends Component {
                     }
                     imageUrl={elem.urlToImage}
                     newsUrl={elem.url}
+                    mode={this.props.mode}
                   />
                 </div>
               );
