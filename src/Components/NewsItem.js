@@ -4,12 +4,12 @@ export class NewsItem extends Component {
   render() {
     let { title, description, imageUrl, newsUrl,} = this.props;
     return (
-      <div className="my-3">
-        <div className="container card" style={{ width:"20rem", border:"solid", borderWidth:1, height:440, overflow:"auto",
+      <div className="my-3 d-flex justify-content-center">
+        <div className="card " style={{ width:"20rem", border:"solid", borderWidth:1, height:440, overflow:"auto",
         backgroundColor:this.props.mode==='dark'?'#212529':'white',
         color:this.props.mode==='dark'?'white':'black'
         }}>
-          <img src={!imageUrl?"notAvailable.png":imageUrl} className="card-img-top mt-3" alt="not available" style={{height: 180}} />
+          <img src={!imageUrl?"notAvailable.png":imageUrl} className="card-img-top img-responsive" alt="not available" style={{height: 180}} />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
@@ -17,7 +17,7 @@ export class NewsItem extends Component {
               rel="noreferrer"
               href={newsUrl}
               target="_blank"
-              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'}`}
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'success'}`}
             >
               Read-more
             </a>

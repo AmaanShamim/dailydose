@@ -4,7 +4,9 @@ export class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className={`navbar navbar-expand-lg navbar-${this.props.mode} bg-${this.props.mode}`}>
+        <nav
+          className={`navbar navbar-expand-lg navbar-${this.props.mode==="light"?"success":"dark"} bg-${this.props.mode==="light"?"success":"dark"}`}
+        >
           <div className="container-fluid">
             <img
               src="android-chrome-512x512.png"
@@ -36,7 +38,11 @@ export class Navbar extends Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link text-center" aria-current="page" href="/home">
+                  <a
+                    className="nav-link text-center"
+                    aria-current="page"
+                    href="/home"
+                  >
                     Home
                   </a>
                 </li>
@@ -45,24 +51,15 @@ export class Navbar extends Component {
                     About
                   </a>
                 </li>
+                <li className="nav-item">
+                  <div className="nav-link text-center active">
+                    <i
+                      onClick={this.props.handlemode}
+                      class="fa-solid fa-sun"
+                    ></i>
+                  </div>
+                </li>
               </ul>
-              <div
-                className="form-check form-switch"
-              >
-                <input
-                  onClick={this.props.handlemode}
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  mode
-                </label>
-              </div>
             </div>
           </div>
         </nav>

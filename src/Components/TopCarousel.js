@@ -25,6 +25,7 @@ export class TopCarousel extends Component {
         id: null,
         name: "Yanko Design",
       },
+      active:"",
       author: "Sarang Sheth",
       title:
         "Connect your AirPods or Bluetooth headset to any device with a 3.5mm audio jack using this wireless dongle",
@@ -43,6 +44,7 @@ export class TopCarousel extends Component {
         id: "techcrunch",
         name: "TechCrunch",
       },
+      active:"",
       author: "Paul Sawers",
       title:
         "Spotify passes 500M users, but its premium-to-free ratio is falling",

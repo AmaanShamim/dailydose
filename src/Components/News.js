@@ -5432,10 +5432,10 @@ export class News extends Component {
     return (
       <>
         <div className="container my-5" id="scrollUp">
-          <h1 className="my-3">
+          <h1 className="py-3">
             Explore more articles:
             <select
-              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'} mx-3`}
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'success'} mx-3`}
               value={itemsPerPage}
               onChange={this.handlePerPageChange}
             >
@@ -5462,7 +5462,7 @@ export class News extends Component {
                     }
                     description={
                       elem.description
-                        ? elem.description.slice(0, 80) + "..."
+                        ? elem.description.slice(0, 130) + "..."
                         : "Not available click on Read-more to get a detailed view"
                     }
                     imageUrl={elem.urlToImage}
@@ -5476,14 +5476,14 @@ export class News extends Component {
           <div className="d-flex justify-content-between my-2">
             <button
               disabled={currentPage === 1}
-              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'}`}
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'success'}`}
               onClick={this.handlePrevClick}
             >
               &larr; previous
             </button>
             <button
               disabled={currentPage === totalPages}
-              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'light'}`}
+              className={`btn btn-sm btn-${this.props.mode==='light'?'dark':'success'}`}
               onClick={this.handleNextClick}
             >
               Next &rarr;
